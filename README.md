@@ -5,7 +5,7 @@ This project was done for the Promptathon held at Acharya Institute of Technolog
 ## Demo Video
 Watch the demo video below to get an overview of the project.
 
-[![Watch the video](https://github.com/Saishivram/Code_Cortex_Acharya/raw/main/assests/your-thumbnail-image.png)](https://github.com/Saishivram/Code_Cortex_Acharya/raw/main/assests/Screen%20Recording%202025-03-25%20150326.mp4)
+https://github.com/user-attachments/assets/675c6fed-ba6d-4f85-8ede-ab2b13312233
 
 
 ## Instructions
