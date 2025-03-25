@@ -1,0 +1,143 @@
+.navbar {
+  background: #2c3e50;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar-brand a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.navbar-links a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-name {
+  color: #ecf0f1;
+}
+
+.logout-btn, .login-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover, .login-btn:hover {
+  background: #c0392b;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #2c3e50;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+
+  .navbar-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-links a {
+    display: block;
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  .navbar-user {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .user-menu {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .logout-btn {
+    width: 100%;
+  }
+} 

@@ -1,0 +1,152 @@
+.navbar {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-brand a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.navbar-brand a:hover {
+    color: #0056b3;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-item {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.nav-item:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+}
+
+.logout-btn {
+    background-color: transparent;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .navbar-brand {
+        margin-bottom: 1rem;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Layout container */
+.layout-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f8f9fa;
+}
+
+/* Common utility classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.page-title {
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid system */
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .grid-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-3, .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+} 
