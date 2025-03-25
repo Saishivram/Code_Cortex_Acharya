@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #00A3FF 0%, #0074E4 100%);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --message-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f6f9fc 0%, #f1f5f9 100%);
+    min-height: 100vh;
+  }
+}
+
+/* Main container styles */
+.app-container {
+  @apply flex h-screen overflow-hidden;
+  background: linear-gradient(135deg, #f6f9fc 0%, #f1f5f9 100%);
+}
+
+/* Chat container background */
+.chat-container {
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(76, 169, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(76, 169, 255, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
+  @apply relative;
+}
+
+/* Message bubbles */
+.message-bubble {
+  @apply backdrop-blur-md;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--message-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.message-bubble:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: var(--hover-shadow);
+}
+
+/* User message specific styles */
+.message-bubble.user-message {
+  background: var(--primary-gradient);
+  border: none;
+  @apply text-white;
+}
+
+/* Glass morphism effect */
+.glass-morphism {
+  @apply bg-white bg-opacity-80 backdrop-blur-lg;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Sidebar styling */
+.sidebar {
+  @apply backdrop-blur-xl;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(249,250,251,0.95) 100%);
+  border-right: 1px solid var(--glass-border);
+}
+
+/* Input field styling */
+.input-field {
+  @apply transition-all duration-300 ease-in-out;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input-field:focus {
+  @apply border-blue-500 ring-2 ring-blue-200;
+  transform: translateY(-1px);
+  background: white;
+}
+
+/* Send button styling */
+.send-button {
+  @apply transition-all duration-300 ease-in-out;
+  background: var(--primary-gradient);
+}
+
+.send-button:hover:not(:disabled) {
+  @apply transform -translate-y-1;
+  box-shadow: 0 4px 12px rgba(0, 116, 228, 0.3);
+}
+
+.send-button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+  background: linear-gradient(135deg, #ccc 0%, #999 100%);
+}
+
+/* Typing indicator animation */
+.typing-indicator {
+  @apply space-x-1;
+}
+
+.typing-indicator div {
+  @apply rounded-full;
+  background: var(--primary-gradient);
+  width: 8px;
+  height: 8px;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator div:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator div:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { 
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Markdown content styling */
+.prose {
+  @apply max-w-none;
+}
+
+.prose p {
+  @apply my-2;
+}
+
+.prose code {
+  @apply px-2 py-1 rounded bg-gray-100 text-sm;
+}
+
+.prose pre {
+  @apply p-4 rounded-lg bg-gray-800 text-white overflow-x-auto;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full;
+  background: linear-gradient(180deg, #00A3FF 0%, #0074E4 100%);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0074E4 0%, #005BB1 100%);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sidebar {
+    @apply fixed left-0 top-0 h-full w-full md:w-64 z-50;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .message-bubble {
+    @apply max-w-[90%] md:max-w-[80%];
+  }
+
+  .input-field {
+    @apply text-base;
+  }
+}
+
+/* Error notification */
+.error-notification {
+  @apply fixed top-4 right-4 z-50;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Transitions */
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Rich text formatting */
+.message-content {
+  @apply leading-relaxed;
+}
+
+.message-content p {
+  @apply mb-2;
+}
+
+.message-content ul, 
+.message-content ol {
+  @apply ml-4 mb-2;
+}
+
+.message-content li {
+  @apply mb-1;
+}
+
+/* Settings panel animations */
+.settings-panel {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.settings-panel.collapsed {
+  @apply opacity-0 pointer-events-none;
+}
+
+/* Button states */
+.btn {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.btn:active {
+  transform: scale(0.95);
+} 
