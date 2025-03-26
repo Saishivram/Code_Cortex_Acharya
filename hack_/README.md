@@ -190,9 +190,3 @@ For support, email support@doctorassistant.com or open an issue in the repositor
 ### Appointment Management
 ![Appointment Management](docs/images/appointments.png)
 
-## Acknowledgments
-
-- Bootstrap Team
-- Font Awesome
-- MongoDB Team
-- Flask Community 
